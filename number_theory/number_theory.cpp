@@ -130,10 +130,6 @@ void spof() //smallest prime factor
 
 }
 
-int spof() //recursively obtaining smallest prime factor divisors
-{
-   
-}
 
 signed main()
 {
