@@ -8,6 +8,10 @@ int prime[MAXI];
 int spf[MAXI];
 int spof[MAXI];
  vector<long long>divisors[1000100]; //list within a list just like List<List<Integer>> in Java
+ int sum(int a,int b)
+ {
+    cout<<sum<<endl;
+ }
 int binpow(int a,int b,int m)
 {
     if(a%m!=0)
