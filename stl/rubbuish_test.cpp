@@ -30,18 +30,84 @@ signed main()
         b.insert(x);
         //union.push(-1*x);
      }
-   multiset<int>intersection;
-   multiset<int>unionx;
+   set<int>intersection;
+   set<int>unionx;
    multiset<int>::iterator it=a.begin();
    multiset<int>::iterator ix=b.begin();
 
+   if(N<=M)
+   {
+   while(it!=a.end())
+   {
+      if(*it==*ix)
+      {
+         unionx.insert(*it);
+         intersection.insert(*it);
+         difference.erase(*it);
+         it++;
+         ix++;
+      }
+      if(*it>*ix)
+      {
+         unionx.insert(*ix);
+         ix++;
+      }
+      else if(*it<*ix)
+      {
+         unionx.insert(*it);
+         it++;
+      }
+   }
+   while(ix!=b.end())
+   {
+      unionx.insert(*ix);
+      ix++;
+   }
+}
+else{
+    while(ix!=b.end())
+   {
+      if(*it==*ix)
+      {
+         unionx.insert(*ix);
+         intersection.insert(*ix);
+         difference.erase(*ix);
+         it++;
+         ix++;
+      }
+      if(*it>*ix)
+      {
+         unionx.insert(*ix);
+         ix++;
+      }
+      else if(*it<*ix)
+      {
+         unionx.insert(*it);
+         it++;
+      }
+   }
+   while(it!=a.end())
+   {
+      unionx.insert(*it);
+      it++;
+   }
 
-     while(it!=a.end())
-     {
-        cout<<*it<<" ";
-        it++;
-     }
-     cout<<endl;
+}
+   for(auto z:unionx)
+   {
+      cout<<z<<" ";
+   }
+   cout<<endl;
+   for(auto p:intersection)
+   {
+      cout<<p<<" ";
+   }
+   cout<<endl;
+   for(auto q:difference)
+   {
+      cout<<q<<" ";
+   }
+   cout<<endl;
     
    }
 }  
