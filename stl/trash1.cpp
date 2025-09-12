@@ -5,12 +5,53 @@ using namespace std;
 
 int main()
 {
-    multiset<int>mp={3,2,1,5,4,9,9};
+    int N;
+    cin>>N;
 
-    for(auto x:mp)
+    vector<stack<int>>vim;
+
+    for(int i=0;i<N;i++)
     {
-        auto ld=mp.lower_bound(x);
-        cout<<x<<"->"<<*ld<<" ";
+        int x;
+        cin>>x;
+
+        if(vim.empty())
+        {
+            stack<int>tr;
+            tr.push(x);
+            vim.push_back(tr);
+        }
+        else
+        {
+            bool hig=false;
+            for(int j=0;j<vim.size();j++)
+            {
+                if(x<vim[j].top())
+                {
+                    vim[j].push(x);
+                    hig=true;
+                    break;
+                }
+            }
+            if(!hig)
+            {
+                stack<int>niu;
+                niu.push(x);
+                vim.push_back(niu);
+            }
+        }
     }
+
+    for(int i=0;i<vim.size();i++)
+ {
+   // cout<<i<<"="<<" ";
+    while(!vim[i].empty())
+    {
+        cout<<vim[i].top()<<"<-";
+        vim[i].pop();
+    }
+    cout<<endl;
+ }
+
     
 }
